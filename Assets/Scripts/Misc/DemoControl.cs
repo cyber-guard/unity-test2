@@ -1,9 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using System.Diagnostics;
 
-
-public static class DemoControl : MonoBehaviour
+public class DemoControl : MonoBehaviour
 {
 	public Texture2D pauseIcon, menuBackground, resumeButton, restartButton, fullscreenButton, muteButton, quitButton;
 	

